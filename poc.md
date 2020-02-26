@@ -56,10 +56,7 @@ debezium/postgres
 
 
 
-2.     
-docker
-run -it --name zookeeper -p 2181:2181 -p 2888:2888 -p 3888:3888
-debezium/zookeeper
+2.     docker run -it --name zookeeper -p 2181:2181 -p 2888:2888 -p 3888:3888 debezium/zookeeper
 
 
 
@@ -71,9 +68,7 @@ debezium/zookeeper
 
 
 
-3.     
-docker
-run -it --name kafka -p 9092:9092 — link zookeeper:zookeeper debezium/kafka
+3.     docker run -it --name kafka -p 9092:9092 — link zookeeper:zookeeper debezium/kafka
 
 
 
@@ -85,13 +80,7 @@ run -it --name kafka -p 9092:9092 — link zookeeper:zookeeper debezium/kafka
 
 
 
-4.     
-docker
-run -it --name connect -p 8083:8083 -e GROUP_ID=1 -e
-CONFIG_STORAGE_TOPIC=my-connect-configs -e
-OFFSET_STORAGE_TOPIC=my-connect-offsets -e ADVERTISED_HOST_NAME=$(echo
-$DOCKER_HOST | cut -f3 -d’/’ | cut -f1 -d’:’) --link zookeeper:zookeeper --link
-postgres:postgres --link kafka:kafka debezium/connect
+4.     docker run -it --name connect -p 8083:8083 -e GROUP_ID=1 -e CONFIG_STORAGE_TOPIC=my-connect-configs -e OFFSET_STORAGE_TOPIC=my-connect-offsets -e ADVERTISED_HOST_NAME=$(echo $DOCKER_HOST | cut -f3 -d’/’ | cut -f1 -d’:’) --link zookeeper:zookeeper --link postgres:postgres --link kafka:kafka debezium/connect
 
 
 
@@ -147,8 +136,7 @@ connect to database
 
 
 
-curl -X POST -H "Accept:application/json"
--H "Content-Type:application/json" localhost:8083/connectors/ -d 
+curl -X POST -H "Accept:application/json" -H "Content-Type:application/json" localhost:8083/connectors/ -d 
 
 
 
@@ -256,8 +244,7 @@ inventory-connector
 
 
 
-6.     
-curl -X GET -H "Accept:application/json" localhost:8083/connectors/inventory-connector
+6.     curl -X GET -H "Accept:application/json" localhost:8083/connectors/inventory-connector
 
 
 
@@ -268,8 +255,7 @@ created
 
 
 
->curl  -H "Accept:application/json"
-localhost:8083/connectors/inventory
+> curl  -H "Accept:application/json" localhost:8083/connectors/inventory
 
 
 
@@ -309,7 +295,7 @@ localhost:8083/connectors/inventory
 
  
 
->docker logs <watcher container id>
+>  docker logs <watcher container id>
 
 --watcher logs to see the audit logging for dml operations on db or table
 
