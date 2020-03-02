@@ -23,7 +23,7 @@ Debezium’s connector service.
 
 
 
-Perquisite:- 
+Prerequisite:- 
 
 
 
