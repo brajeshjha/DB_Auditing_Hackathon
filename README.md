@@ -9,7 +9,7 @@ Auditing
 
 -- Debezium is built on top of Apache Kafka and provides Kafka Connect compatible connectors that monitor
 specific database management systems.
-
+![alt text](https://github.com/brajeshjha/DB_Auditing_Hackathon/blob/master/Manyata.jpg)
 
 
 -- Debezium records the history of data changes in Kafka logs
